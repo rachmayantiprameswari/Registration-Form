@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+    <style type="text/css">
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        fieldset {
+          position: relative;
+          width: 40%;
+        }
+
+        legend {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background-color: white;
+          font-size: 12px;
+          font-weight: normal;
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        table {
+            background-color: rgb(107, 250, 243);
+            font-size: 12px;
+            font-weight: normal;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 4px;
+            width: 100%;
+        }
+        input{
+            font-size: 12px;
+            font-weight: normal;
+            font-family: Arial, Helvetica, sans-serif;
+            border: 2px solid #eee;
+        }
+        input[type=date] {
+            margin: 8px 0;
+            padding: 8px 5px;
+            border-radius: 5px;
+        }
+        input[type=text] {
+            margin: 5px 0;
+            padding: 5px 5px;
+            border-radius: 5px;
+        }
+        input[type=email] {
+            margin: 8px 0;
+            padding: 8px 5px;
+            border-radius: 5px;
+        }
+        input[type=password] {
+            margin: 8px 0;
+            padding: 8px 5px;
+            border-radius: 5px;
+        }
+        select {
+            c
+            width: 50%;
+            margin: 8px 0;
+            padding: 10px 5px;
+            border-radius: 5px;
+            border: 2px solid #eee;
+        }
+        textarea {
+            padding: 2px;
+            line-height: 1;
+            border-radius: 5px;
+            resize: vertical;
+            border: 2px solid #eee;
+        }
+        input[type=submit] {
+            
+            padding: 12px 8px;
+            margin-left: 80px;
+            margin-top: auto;
+            /* margin-bottom: 20px; */
+            margin-right: -20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #33d439;
+            color: white;
+            font-size: 12px;
+        }
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+        input[type=reset] {
+            
+            padding: 12px 8px;
+            margin-left: 30px;
+            margin-top: auto;
+            /* margin-bottom: 20px; */
+            margin-right: -20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #547ef3;
+            color: white;
+            font-size: 12px;
+        }
+        input[type=reset]:hover {
+            background-color: #45a049;
+        }
+        /* Customize the label (the container) */
+        .container1 {
+          display: inline-block;
+          float: left;
+          display: block;
+          position: relative;
+          padding-left: 15px;
+          padding-right: 15px;
+          margin-bottom: 12px;
+          margin-top: 12px;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        /* Hide the browser's default checkbox */
+        .container1 input{
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+
+        /* Create a custom checkbox */
+        .checkmark1 {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 12px;
+          width: 12px;
+          background-color: #eee;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container1:hover input ~ .checkmark1 {
+          background-color: #ccc;
+        }
+
+        /* When the checkbox is checked, add a blue background */
+        .container1 input:checked ~ .checkmark1 {
+          background-color: #2196F3;
+        }
+
+        /* Create the checkmark/indicator (hidden when not checked) */
+        .checkmark1:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+
+        /* Show the checkmark when checked */
+        .container1 input:checked ~ .checkmark1:after {
+          display: block;
+        }
+
+        /* Style the checkmark/indicator */
+        .container1 .checkmark1:after {
+          left: 2px;
+          top: 0px;
+          width: 5px;
+          height: 8px;
+          border: solid white;
+          border-width: 0 3px 3px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+
+        /* Customize the label (the container) */
+        .container {
+          display: inline-block;
+          float: left;
+          display: block;
+          position: relative;
+          padding-left: 20px;
+          padding-right: 15px;
+          margin-bottom: 12px;
+          margin-top: 12px;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+        }
+
+        /* Hide the browser's default radio button */
+        .container input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+
+        /* Create a custom radio button */
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 13px;
+          width: 13px;
+          background-color: #eee;
+          border-radius: 50%;
+        }
+
+        /* On mouse-over, add a grey background color */
+        .container:hover input ~ .checkmark {
+          background-color: #ccc;
+        }
+
+        /* When the radio button is checked, add a blue background */
+        .container input:checked ~ .checkmark {
+          background-color: #2196F3;
+        }
+
+        /* Create the indicator (the dot/circle - hidden when not checked) */
+        .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+        }
+
+        /* Show the indicator (dot/circle) when checked */
+        .container input:checked ~ .checkmark:after {
+          display: block;
+        }
+
+        /* Style the indicator (dot/circle) */
+        .container .checkmark:after {
+          top: 2.5px;
+          left: 2.5px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: white;
+        }
+    </style>
+</head>
+<body>
+<form action="formHandsOn.php" method="post" enctype="multipart/form-data">
+	<center><h3>Registrasi</h3>
+        <fieldset>
+        <legend>Data Login</legend>
+        <table>
+            <tr>
+                <td width="17%">Username</td>
+                <td><input type="text" name="username" placeholder="Username..." /></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" placeholder="Your email..." /></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" placeholder="Password..." /></td>
+            </tr>            
+        </table>
+    </fieldset>
+    <fieldset>
+        <legend>Data Pribadi</legend>
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" name="nama" placeholder="Nama lengkap..." /></td>
+            </tr>
+            <tr>
+                <td>Jenis kelamin</td>
+                <td><label  class="container"><input type="radio" name="jenis_kelamin" value="laki-laki" /> Laki-laki<span class="checkmark"></span></label>
+                    <label  class="container"><input type="radio" name="jenis_kelamin" value="perempuan" /> Perempuan<span class="checkmark"></span></label></td>
+            </tr>
+            <tr>
+                <td>Hobi</td>
+                <td><div><label class="container1"><input type="checkbox" name="fotografi" /><span class="checkmark1"></span>Fotografi</label>
+                    <label class="container1"><input type="checkbox" name="travelling" /><span class="checkmark1"></span>Travelling</label>
+                    <label class="container1"><input type="checkbox" name="nonton" /><span class="checkmark1"></span>Nonton</label>
+                    <input type="text" name="hobiLain" placeholder="Hobi lain..." /></div></td>
+            </tr>
+            <tr>
+                <td>Agama</td>
+                <td><select name="agama">
+                <option value="default">--pilih--</option>
+                <option value="islam">Islam</option>
+                <option value="katolik">Katolik</option>
+                <option value="kristen">Kristen</option>
+                <option value="hindu">Hindu</option>
+                <option value="budha">Budha</option>
+                <option value="konghucu">Konghucu</option>
+            </select></td>
+            </tr>
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td><input type="date" name="tanggal" /></td>
+            </tr>
+            <tr>
+                <td>Biografi</td>
+                <td><textarea name="biografi"></textarea></td>
+            </tr>
+            <tr>
+                <td>Foto</td>
+                <td><input type="file" name="foto"></td>
+            </tr>
+        </table>
+    </fieldset>
+    <fieldset>
+        <table>
+            <tr>
+                <td><input type="submit" name="submit" value="Daftar" /><input type="reset" name="reset" value="Hapus" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    </center>
+</form>
+</body>
+</html>
